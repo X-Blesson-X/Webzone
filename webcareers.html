@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Webzone Electro Mechanical</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .bg-brand-blue { background-color: #1e3a8a; }
+        .text-brand-blue { color: #1e3a8a; }
+        .bg-brand-red { background-color: #dc2626; }
+        .text-brand-red { color: #dc2626; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 100; align-items: center; justify-content: center; }
+        .modal.active { display: flex; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="sticky top-0 bg-white shadow-lg z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <div class="text-3xl font-black uppercase tracking-tighter">
+                <span  href = "index.html" class="text-brand-blue">Web</span><span class="text-brand-red">zone</span>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8 font-semibold text-gray-700">
+                    <li><a href="Websxo.html" class="hover:text-brand-red transition">Home</a></li>
+                    <li><a href="Websxo.html#services" class="hover:text-brand-red transition">Services</a></li>
+                    <li><a href="#" class="text-brand-red">Careers</a></li>
+                    <li><a href="Websxo.html#contact" class="px-5 py-2 bg-brand-red text-white rounded-full">Contact</a></li>
+                </ul>
+            </nav>
+
+                <div id="mobileMenu" class="fixed inset-0 bg-brand-blue z-[10] transform translate-x-full transition-transform duration-300 lg:hidden">
+        <div class="p-6">
+            <button onclick="toggleMobileMenu()" class="text-white text-2xl float-right">×</button>
+            <ul class="mt-20 text-white text-xl space-y-6 text-center">
+                <li><a href="#home" onclick="toggleMobileMenu()">Home</a></li>
+                <li><a href="#services" onclick="toggleMobileMenu()">Services</a></li>
+                <li><a href="#projects" onclick="toggleMobileMenu()">Projects</a></li>
+                <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+                <li><a href="webcareers.html" onclick="toggleMobileMenu()">Careers</a></li>
+                
+            </ul>
+        </div>
+    </div>
+        </div>
+    </header>
+
+    <section class="bg-brand-blue py-20 text-white text-center">
+        <h1 class="text-5xl font-bold mb-4">Join Our Team</h1>
+        <p class="text-xl text-blue-100">Help us engineer the future of MEP solutions in the UAE.</p>
+    </section>
+
+    <section class="py-20 container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-10 text-center">Current Openings</h2>
+        <div id="jobGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <div id="applyModal" class="modal p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 relative">
+            <button onclick="closeApplyModal()" class="absolute top-4 right-4 text-2xl">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-blue mb-2">Application Form</h3>
+            <p id="applyingFor" class="text-brand-red font-semibold mb-6"></p>
+            
+            <form id="careerForm" class="space-y-4">
+                <input type="hidden" id="jobTitleInput" name="applied_position">
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Full Name *</label>
+                        <input type="text" name="full_name" required class="w-full p-2 border rounded" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Email Address *</label>
+                        <input type="email" name="email" required class="w-full p-2 border rounded" placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Phone Number *</label>
+                        <input type="tel" name="phone" required class="w-full p-2 border rounded" placeholder="+971 50 000 0000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1">Years of Experience *</label>
+                        <select name="experience" required class="w-full p-2 border rounded">
+                            <option value="">Select Range</option>
+                            <option value="0-2">0-2 Years</option>
+                            <option value="3-5">3-5 Years</option>
+                            <option value="5-10">5-10 Years</option>
+                            <option value="10+">10+ Years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold mb-1">Highest Qualification</label>
+                    <input type="text" name="qualification" required class="w-full p-2 border border-dashed rounded bg-gray-50" placeholder="e.g. B.Tech Mechanical Engineering">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold mb-1">Upload Resume (PDF only) *</label>
+                    <input type="file" name="resume" accept=".pdf" required class="w-full p-2 border border-dashed rounded bg-gray-50">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold mb-1">Why do you want to join Webzone?</label>
+                    <textarea name="cover_letter" class="w-full p-2 border rounded h-24" placeholder="Briefly describe your interest..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-brand-blue text-white font-bold py-3 rounded hover:bg-blue-800 transition">SUBMIT APPLICATION</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const openJobs = [
+            { id: 1, title: "HVAC Technician", dept: "Operations", location: "Dubai", type: "Full-Time" },
+            //{ id: 2, title: "Electrical Engineer", dept: "Engineering", location: "Abu Dhabi", type: "Full-Time" },
+            //{ id: 3, title: "Safety Officer", dept: "HSE", location: "Sharjah", type: "Contract" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('jobGrid');
+            if (openJobs.length === 0) {
+                grid.innerHTML = '<p class="col-span-full text-center text-gray-500 py-10">No current openings. Please check back later!</p>';
+           
+            } else {
+                grid.innerHTML = openJobs.map(job => `
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:border-brand-red transition">
+                        <span class="text-xs font-bold text-brand-red uppercase">${job.dept}</span>
+                        <h3 class="text-xl font-bold mt-1">${job.title}</h3>
+                        <div class="flex gap-4 text-sm text-gray-500 mt-3 mb-6">
+                            <span><i class="fas fa-map-marker-alt mr-1"></i>${job.location}</span>
+                            <span><i class="fas fa-clock mr-1"></i>${job.type}</span>
+                        </div>
+                        <button onclick="openApplyModal('${job.title}')" class="w-full py-2 border-2 border-brand-blue text-brand-blue font-bold rounded-lg hover:bg-brand-blue hover:text-white transition">Apply Now</button>
+                    </div>
+                `).join('');
+            }
+        });
+
+        function openApplyModal(jobTitle) {
+            // Set the visual text for the user
+            document.getElementById('applyingFor').innerText = "Position: " + jobTitle;
+            // Set the hidden input value for the reviewer
+            document.getElementById('jobTitleInput').value = jobTitle;
+            
+            document.getElementById('applyModal').classList.add('active');
+        }
+           
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        function closeApplyModal() {
+            document.getElementById('applyModal').classList.remove('active');
+        }
+
+
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  document.addEventListener('keydown', e => {
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) ||
+      (e.ctrlKey && e.key === 'U')
+    ) {
+      e.preventDefault();
+    }
+  });
+
+        document.getElementById('careerForm').onsubmit = (e) => {
+            e.preventDefault();
+            // You can see the registered job title in the console for testing
+            const jobValue = document.getElementById('jobTitleInput').value;
+            console.log("Submitting application for:", jobValue);
+            
+            alert("Thank you! Your application for " + jobValue + " has been submitted successfully.");
+            closeApplyModal();
+        };
+    </script>
+</body>
+</html>

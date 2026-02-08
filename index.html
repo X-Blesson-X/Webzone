@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Webzone Electro Mechanical Services - Engineering Excellence in UAE">
+    <title>Webzone | Electro Mechanical Services</title>
+    
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#1e3a8a',
+                            darkBlue: '#172554',
+                            red: '#dc2626',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Optimized Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
+
+        /* Modal Styles */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        /* Glass Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Mobile Menu Side Drawer */
+        #mobileMenu {
+            transition: transform 0.3s ease-in-out;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-left: 1px solid rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+
+    <nav class="lg:hidden glass-nav fixed w-full z-50 px-5 py-3 flex justify-between items-center shadow-sm">
+        <div class="text-2xl font-black tracking-tight"><span class="text-brand-blue">WEB</span><span class="text-brand-red">ZONE</span></div>
+        <button onclick="toggleMobileMenu()" class="text-brand-blue text-2xl focus:outline-none p-1">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div id="mobileOverlay" onclick="toggleMobileMenu()" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity duration-300"></div>
+    <div id="mobileMenu" class="fixed top-0 right-0 h-full w-[75%] max-w-xs z-[60] transform translate-x-full shadow-2xl flex flex-col pt-20 px-6">
+        <button onclick="toggleMobileMenu()" class="absolute top-5 right-5 text-gray-800 text-3xl hover:text-brand-red transition">×</button>
+        <ul class="text-gray-800 text-xl font-bold space-y-6">
+            <li><a href="#home" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">Home</a></li>
+            <li><a href="#about" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">About Us</a></li>
+            <li><a href="#services" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">Services</a></li>
+            <li><a href="#projects" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">Contact</a></li>
+            <li><a href="webcareers.html" onclick="toggleMobileMenu()" class="block border-b border-gray-200 pb-2 hover:text-brand-red">Careers</a></li>
+        </ul>
+        <div class="mt-auto mb-8 text-sm text-gray-500">
+            <p><i class="fas fa-phone mr-2"></i> +971 4 000 0000</p>
+        </div>
+    </div>
+
+    <header class="hidden lg:block sticky top-0 glass-nav z-50 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center py-3 px-6">
+            <a href="#" class="flex items-center gap-3">
+                <img src="bglogo.png"  alt="Webzone" class="h-14 w-auto object-contain">
+                <div class="text-3xl font-black uppercase tracking-tighter">
+                    <span class="text-brand-blue">Web</span><span class="text-brand-red">zone</span>
+                </div>
+            </a>
+            <nav>
+                <ul class="flex space-x-8 font-semibold text-gray-700 items-center">
+                    <li><a href="#home" class="hover:text-brand-red transition relative group">Home</a></li>
+                    <li><a href="#about" class="hover:text-brand-red transition relative group">About</a></li>
+                    <li><a href="#services" class="hover:text-brand-red transition relative group">Services</a></li>
+                    <li><a href="#projects" class="hover:text-brand-red transition relative group">Projects</a></li>
+                    <li><a href="webcareers.html" class="hover:text-brand-red transition relative group">Careers</a></li>
+                    <li><a href="#contact" class="px-6 py-2.5 bg-brand-red text-white rounded-full hover:bg-red-700 transition shadow-lg transform hover:-translate-y-0.5">Get a Quote</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="relative h-[80vh] flex items-center justify-center text-white">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40 z-10"></div>
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1920" class="absolute inset-0 w-full h-full object-cover" alt="MEP Services">
+        
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto" data-aos="fade-up">
+            <div class="inline-block mb-4 px-5 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full">
+                <span class="text-red-400 font-bold text-sm tracking-widest uppercase">Web Zone Electro Mechanical</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 leading-tight">
+                Engineering <span class="text-brand-red">Excellence</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200">Leading Electro Mechanical Solutions for Infrastructure, Oil & Gas, and Commercial sectors.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#services" class="bg-brand-red px-8 py-3 rounded text-lg font-bold hover:bg-red-700 transition">Our Services</a>
+                <a href="#contact" class="bg-white text-brand-blue px-8 py-3 rounded text-lg font-bold hover:bg-gray-100 transition">Contact Us</a>
+            </div>
+        </div>
+    </section>
+<!---status banner-->
+        <section class="py-16 bg-white relative -mt-20 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-t-3xl shadow-xl">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 rounded-xl bg-slate-50 hover:shadow-md transition border border-slate-100">
+                <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-clock text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Quick Emergency Services</h3>
+                <p class="text-slate-600">Technical issues don't wait for business hours. Neither do we. We are always ready to help.</p>
+            </div>
+            <div class="p-6 rounded-xl bg-slate-50 hover:shadow-md transition border border-slate-100">
+                <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-certificate text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Expert Technical Team</h3>
+                <p class="text-slate-600">Our team consists of licensed and insured professionals with years of industry Experience.</p>
+            </div>
+            <div class="p-6 rounded-xl bg-slate-50 hover:shadow-md transition border border-slate-100">
+                <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-hand-holding-dollar text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Reasonable Price</h3>
+                <p class="text-slate-600">No hidden fees. We provide upfront quotes and competitive pricing for all our services.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-brand-blue text-sm font-bold tracking-widest uppercase mb-2">Who we are</h2>
+                <h3 class="text-4xl font-bold text-gray-900 mb-6">Innovative <span class="text-brand-red">Electro-Mechanical</span> Solutions</h3>
+                <p class="text-gray-600 leading-relaxed mb-6">Web Zone Electro Mechanical Works LLC is a leading HVAC, MEP, Fire & Safety, and Civil Defense–approved contracting and maintenance company in the UAE. We deliver reliable end-to-end solutions to keep your buildings operating efficiently and safely. Our skilled technicians specialize in HVAC installation and maintenance, electrical works, plumbing and sanitation, civil works, and fire & safety systems.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 border-l-4 border-brand-red bg-white shadow-md rounded-r">
+                        <div class="text-2xl font-bold text-brand-blue">500+</div>
+                        <div class="text-sm text-gray-500">Projects Completed</div>
+                    </div>
+                    <div class="p-4 border-l-4 border-brand-red bg-white shadow-md rounded-r">
+                        <div class="text-2xl font-bold text-brand-blue">24/7</div>
+                        <div class="text-sm text-gray-500">Support</div>
+                    </div>
+                </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800" loading="lazy" class="rounded-lg shadow-xl w-full object-cover" alt="Engineer">
+                <div class="absolute -bottom-6 -left-6 bg-brand-blue text-white p-6 rounded shadow-xl hidden md:block">
+                    <span class="text-4xl font-bold">UAE</span><br>Licensed Company
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">  
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900">Our Services</h2>
+                <div class="h-1 w-20 bg-brand-red mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <script>
+                    const services = [
+                        { title: "Air Conditioning", image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=600", icon: "fa-snowflake", desc: "Centralized and split cooling systems.", full: "We provide comprehensive AC solutions including VRF systems, Chiller plants, and ductwork for commercial and residential buildings." },
+                        { title: "Fire and Safety", image: "https://images.unsplash.com/photo-1615818497693-255d6568288e?auto=format&fit=crop&q=80&w=600", icon: "fa-fire-extinguisher", desc: "Advanced fire suppression systems.", full: "Complete installation of sprinklers, FM200 systems, smoke detectors, and fire pumps compliant with Civil Defense standards." },
+                        { title: "MEP Maintenance", image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=600", icon: "fa-cogs", desc: "Full-scale mechanical upkeep.", full: "Preventive and corrective maintenance for high-rise buildings and industrial complexes." },
+                        { title: "MEP Contracting", image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600", icon: "fa-file-contract", desc: "Turnkey MEP projects.", full: "End-to-end contracting services covering electrical grids, HVAC, and piping for new constructions." },
+                        { title: "Civil Contracting", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Maintenance Contracts (AMC)", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "HVAC Installation & Maintenance", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Plumbing", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-pipe", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Oil & Gas Services", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Commercial Electrical Services", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Maintenance Services", image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=600", icon: "fa-calendar-check", desc: "Annual Maintenance Contracts.", full: "Customized AMC packages for facilities to ensure zero downtime and optimal performance." },
+                        { title: "Satellite maintenance Work", image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600", icon: "fa-satellite", desc: "Power solutions.", full: "LV/MV panel boards, lighting design, and power distribution systems." }
+                    ];
+
+                    document.write(services.map(s => `
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-brand-red transition duration-300 cursor-pointer group" 
+                             onclick="openModal('${s.title}', '${s.full}', '${s.image}')" data-aos="fade-up">
+                            <img src="${s.image}" alt="${s.title}" loading="lazy" class="w-full h-40 object-cover mb-4 rounded-lg group-hover:opacity-90 transition">
+                            <div class="flex items-center mb-2">
+                                <i class="fas ${s.icon} text-xl text-brand-blue mr-3 group-hover:text-brand-red transition"></i>
+                                <h3 class="text-lg font-bold">${s.title}</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-3">${s.desc}</p>
+                            <span class="text-brand-red text-sm font-semibold">View Details →</span>
+                        </div>
+                    `).join(''));
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <div id="serviceModal" class="modal">
+        <div class="bg-white rounded-lg max-w-lg w-full relative shadow-2xl overflow-hidden animate-[fadeIn_0.2s_ease-out]">
+            <button onclick="closeModal()" class="absolute top-3 right-3 bg-white rounded-full w-8 h-8 flex items-center justify-center shadow z-10 hover:text-red-600 text-xl">×</button>
+            <img id="modalImage" src="" class="w-full h-56 object-cover">
+            <div class="p-8">
+                <h3 id="modalTitle" class="text-2xl font-bold text-brand-blue mb-3"></h3>
+                <p id="modalBody" class="text-gray-700 leading-relaxed mb-6"></p>
+                <div class="flex justify-end gap-3">
+                    <button onclick="closeModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded">Close</button>
+                    <a href="#contact" onclick="closeModal()" class="bg-brand-red text-white px-6 py-2 rounded hover:bg-red-700 transition">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Featured Projects</h2>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer h-64" 
+                     onclick="openModal('City Center Mall', 'Complete HVAC system installation for 500,000 sqft retail space. Included central chillers, AHUs, and smart ventilation control.', 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600')"
+                     data-aos="fade-up" data-aos-delay="0">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" loading="lazy" alt="Mall" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/80 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 text-white">
+                        <p class="font-bold text-lg">City Center Mall</p>
+                        <p class="text-sm text-gray-200">Click for details</p>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer h-64" 
+                     onclick="openModal('Industrial Park B', 'Heavy electrical grid installation including LV/MV panels, transformers, and industrial cabling for a manufacturing complex.', 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600')"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=600" loading="lazy" alt="Industrial" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/80 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 text-white">
+                        <p class="font-bold text-lg">Industrial Park B</p>
+                        <p class="text-sm text-gray-200">Click for details</p>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer h-64" 
+                     onclick="openModal('Skyline Tower', 'Fire safety and plumbing systems integration for a 40-story residential tower. Civil defense approved installation.', 'https://images.unsplash.com/photo-1479839672679-a455b1809a2c?auto=format&fit=crop&q=80&w=600')"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1479839672679-a455b1809a2c?auto=format&fit=crop&q=80&w=600" loading="lazy" alt="Tower" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/80 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 text-white">
+                        <p class="font-bold text-lg">Skyline Tower</p>
+                        <p class="text-sm text-gray-200">Click for details</p>
+                    </div>
+                </div>
+
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer h-64" 
+                     onclick="openModal('Refinery Plant', 'Specialized piping and explosion-proof electrical fittings for the oil and gas sector.', 'https://images.unsplash.com/photo-1518337231758-190699272871?auto=format&fit=crop&q=80&w=600')"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1518337231758-190699272871?auto=format&fit=crop&q=80&w=600" loading="lazy" alt="Refinery" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-brand-blue/80 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300 text-white">
+                        <p class="font-bold text-lg">Refinery Plant</p>
+                        <p class="text-sm text-gray-200">Click for details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-red-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px- lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <h3 class="text-4xl font-bold mb-0.2">15+</h3>
+                    <p class="text-orange-100">Years of Experience<p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold mb-0.2">100+</h3>
+                    <p class="text-orange-100">Hours of Work</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold mb-0.2">500+</h3>
+                    <p class="text-orange-100">Projects Completed</p>
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold mb-0.2">500+</h3>
+                    <p class="text-orange-100">Clients Satisfaction </p>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+<!-- Certifications --> 
+    <section class="py-16 bg-gray-50 border-y border-gray-200">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold mb-10 text-gray-400 uppercase tracking-widest">License & Certifications</h2>
+            <div class="flex flex-wrap justify-center gap-8 items-center opacity-90">
+                <!--Registration-->
+                <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" target="_blank" class="inline-block transition duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
+                    <img
+                        src="https://placehold.co/150x80?text=Registration"
+                        alt="Registration"
+                        class="h-20 grayscale hover:grayscale-0 transition duration-300"
+                    >
+                </a>
+                     <!--License-->
+                <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" target="_blank" class="inline-block transition duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
+                    <img
+                        src="https://placehold.co/150x80?text=Our License"
+                        alt="License"
+                        class="h-20 grayscale hover:grayscale-0 transition duration-300"
+                    >
+                </a>
+
+                <!--Quality-->
+                <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" target="_blank" class="inline-block transition duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
+                    <img
+                        src="https://placehold.co/150x80?text=Quality Policy"
+                        alt="Quality Policy"
+                        class="h-20 grayscale hover:grayscale-0 transition duration-300"
+                    >
+                </a>
+                <!--Assesment 1-->
+                <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" target="_blank" class="inline-block transition duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
+                    <img
+                        src="https://placehold.co/150x80?text=Assesment 1"
+                        alt="assesment 1"
+                        class="h-20 grayscale hover:grayscale-0 transition duration-300"
+                    >
+                </a>
+                <!--Assesment 2-->
+                <a href="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600" target="_blank" class="inline-block transition duration-300 ease-out hover:-translate-y-2 hover:scale-105 hover:shadow-xl">
+                    <img
+                        src="https://placehold.co/150x80?text=Assesment 2"
+                        alt="Assesment 2"
+                        class="h-20 grayscale hover:grayscale-0 transition duration-300"
+                    >
+                </a>
+        </div>
+        <!--                <img src="https://placehold.co/150x80?text=Civil+Defense" alt="Civil Defense" class="h-20 grayscale hover:grayscale-0 transition duration-300">-->
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
+                    <p class="mb-8 text-gray-600">Ready to start your next project with us? Fill out the form and our team will get back to you within 24 hours.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-brand-red w-10 text-xl"></i>
+                            <span>WebZone Electro Mechanical - Abu Dhabi,UAE</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-brand-red w-10 text-xl"></i>
+                            <span><strong>+971 4 000 0000</strong></span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-brand-red w-10 text-xl"></i>
+                            <span>info@webzonegrp.com</span>
+                        </div>
+                                                <div class="flex items-center">
+                            <i class="fas fa-clock text-brand-red w-10 text-xl"></i>
+                            <span>Monday-Saturday 7:00AM - 4:00PM </span>
+                        </div>
+                    </div>
+                    <div class="mt-8 h-64 bg-gray-200 rounded-lg overflow-hidden">
+                        <iframe class="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11982.96860784632!2d54.52405!3d24.358873!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e4734fc7c146f%3A0x6cf310d258baf27e!2sWEB%20ZONE%20ELECTRO%20MECHANICAL%20CONTRACTING%20LLC!5e1!3m2!1sen!2sus!4v1769977726604!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                
+                <div class="bg-white p-8 rounded-lg shadow-xl border border-gray-100" data-aos="fade-left">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="i put my key here"> 
+                        <div class="mb-4">
+                            <label class="block font-bold mb-1 text-sm text-gray-700">Name</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded focus:border-brand-blue outline-none transition" placeholder="Your name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-bold mb-1 text-sm text-gray-700">Email</label>
+                            <input type="email" class="w-full p-3 border border-gray-300 rounded focus:border-brand-blue outline-none transition" placeholder="Your email">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-bold mb-1 text-sm text-gray-700">Phone Number</label>
+                            <input type="tel" class="w-full p-3 border border-gray-300 rounded focus:border-brand-blue outline-none transition" placeholder="+971 50 000 0000">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-bold mb-1 text-sm text-gray-700">Service Required</label>
+                            <select class="w-full p-3 border border-gray-300 rounded focus:border-brand-blue outline-none transition">
+                                <option>Air Conditioning</option>
+                                <option>Fire & Safety</option>
+                                <option>MEP Contracting</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                <option>General Maintenance</option>
+                                
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block font-bold mb-1 text-sm text-gray-700">Message</label>
+                            <textarea class="w-full p-3 border border-gray-300 rounded h-32 focus:border-brand-blue outline-none transition" placeholder="Project details..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-blue text-white font-bold py-3 rounded hover:bg-brand-darkBlue transition duration-300">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--our partners-->
+    
+    <section>
+        <br><h2 class="text-4xl font-bold text-center mb-16 text-black">
+            Our Distinguished Partners
+        </h2>
+    <style>
+        /* --- CSS STYLES --- */
+
+        /* 1. Container for the whole banner */
+        .partners-banner {
+            width: 100%;
+            height: 120px; /* Adjust height as needed */
+            background-color: #f8f9fa; /* Background color */
+            overflow: hidden; /* Hides the scrollbar */
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 2. The track that holds the logos */
+        .partners-track {
+            display: flex;
+            width: max-content; /* Force track to fit all items */
+            animation: scroll-left 50s linear infinite; /* 40s = speed. Higher is slower */
+        }
+
+        /* 3. The individual logo container */
+        .partner-logo {
+            width: 150px; /* Fixed width for consistent spacing */
+            height: 80px;
+            margin: 0 20px; /* Gap between logos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 4. The actual image styling */
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensures logo isn't stretched */
+            filter: grayscale(100%); /* Optional: makes logos B&W until hovered */
+            transition: filter 0.3s ease;
+        }
+
+        /* Optional: Color on hover */
+        .partner-logo img:hover {
+            filter: grayscale(0%);
+        }
+
+        /* 5. The Animation Keyframes */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* Move left by 50% of the track (since we doubled the content) */
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Pause animation on hover (optional) */
+      /*  .partners-banner:hover .partners-track -- animation-play-state: paused;  { */
+            
+      /*  } */
+
+    </style>
+
+    <div class="partners-banner">
+        <div class="partners-track" id="track">
+            
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+1" alt="Partner 1"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+2" alt="Partner 2"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+3" alt="Partner 3"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+4" alt="Partner 4"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+5" alt="Partner 5"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+6" alt="Partner 6"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+7" alt="Partner 7"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+8" alt="Partner 8"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+9" alt="Partner 9"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+10" alt="Partner 10"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+11" alt="Partner 11"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+12" alt="Partner 12"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+13" alt="Partner 13"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+14" alt="Partner 14"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+15" alt="Partner 15"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+16" alt="Partner 16"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+17" alt="Partner 17"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+18" alt="Partner 18"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+19" alt="Partner 19"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+20" alt="Partner 20"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+21" alt="Partner 21"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+22" alt="Partner 22"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+23" alt="Partner 23"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+24" alt="Partner 24"></div>
+            <div class="partner-logo"><img src="https://placehold.co/150x80?text=Logo+25" alt="Partner 25"></div>
+
+        </div>
+    </div>
+
+    <script>
+        // This script automatically creates a copy of the logos
+        // and appends them to the end. This ensures the loop is infinite and smooth.
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('track');
+            
+            // Clone the content
+            const content = track.innerHTML;
+            track.innerHTML += content; 
+        });
+    </script>
+    </section>
+
+ <!--Team-->
+<section class="py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-16 text-brand-blue">
+            Meet Our Leadership
+        </h2>
+
+        <div class="grid md:grid-cols-4 gap-8">
+            <!-- Chief Executive-->
+            <div class="text-center group">
+                <div class="relative w-48 h-48 mx-auto mb-6">
+                    <div class="absolute inset-0 border-4 border-brand-red rounded-full transform rotate-45"></div>
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-brand-blue relative z-10">
+                        <img  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="https://webzonegroup.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-19-at-3.37.43-PM-1.jpeg"
+                             loading="lazy"
+                             alt="Ahmed Hassan"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-gray-900">Joseph Varkey</h4>
+                <p class="text-brand-red font-medium mb-2">Chief Executive</p>
+
+                <p class="text-gray-600 text-sm line-clamp-2 leader-message">
+                    From a young age, I've been fascinated with how machinery is designed and how it operates. 
+                    Now, I'm using my knowledge to bring you solutions to your mechanical and electrical problems. 
+                    Hi, my name is Joseph Varkey and I am the CEO of Web Zone Electro Mechanical Works LLC. I started this company in 2009 with the hopes of serving the public with high quality, professional service in the world of electro mechanics. 
+                    I started as an operations manager, coordinating daily business functions. Now, I have the pleasure of managing one of the leading companies in the industry within UAE and an excellent team to help me realise my passion, with over 40 years of Experience between us
+
+                </p>
+
+                <button
+                    class="mt-2 text-sm text-brand-blue font-medium hover:underline"
+                    onclick="toggleMessage(this)">
+                    Read more
+                </button>
+            </div>
+
+                        <!-- Chief Executive Director Fire and safety -->
+            <div class="text-center group">
+                <div class="relative w-48 h-48 mx-auto mb-6">
+                    <div class="absolute inset-0 border-4 border-brand-red rounded-full transform rotate-45"></div>
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-brand-blue relative z-10">
+                        <img  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="https://webzonegroup.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-19-at-3.30.07-PM-1.jpeg"
+                             loading="lazy"
+                             alt="Ahmed Hassan"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-gray-900">Matthew</h4>
+                <p class="text-brand-red font-medium mb-2"> Chief Executive Director Fire and safety</p>
+
+                <p class="text-gray-600 text-sm line-clamp-2 leader-message">
+                    Hi, I'm Matthew. With over 40 years of work Experience in various industries across the globe,
+                     I'm happy to come on board as the Operations Manager for Web Zone Electro Mechanics. 
+                     I am passionate about delivering excellent customer service and ensuring that our employees and clients are equally satisfied, driving Web Zone towards becoming an industry leader in Asia
+
+                </p>
+
+                <button
+                    class="mt-2 text-sm text-brand-blue font-medium hover:underline"
+                    onclick="toggleMessage(this)">
+                    Read more
+                </button>
+            </div>
+
+                        <!--Head of business consultant-->
+            <div class="text-center group">
+                <div class="relative w-48 h-48 mx-auto mb-6">
+                    <div class="absolute inset-0 border-4 border-brand-red rounded-full transform rotate-45"></div>
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-brand-blue relative z-10">
+                        <img  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="https://webzonegroup.com/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-20-at-6.13.49-PM-1.jpeg"
+                             loading="lazy"
+                             alt="Ahmed Hassan"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-gray-900">Benny P John</h4>
+                <p class="text-brand-red font-medium mb-2">Head of business consultant</p>
+
+                <p class="text-gray-600 text-sm line-clamp-2 leader-message">
+                    My name is Benny P John, Head of Business Consultants of Web Zone Electro Mechanical Works LLC.
+                     My vision for Web Zone is to be the best organization in the Electromechanical field, by providing the highest quality of service and prime solutions to our clients through our dedicated and motivated engineers and technicians, working together as one team. 
+                     We consider only Top- Level standards in the electromechanical industry through our continued passion towards business principles, ethics and the safety of our employees.
+                 </p>
+
+                <button
+                    class="mt-2 text-sm text-brand-blue font-medium hover:underline"
+                    onclick="toggleMessage(this)">
+                    Read more
+                </button>
+            </div>
+
+                        <!--Head Of Department Fire and safety-->
+            <div class="text-center group">
+                <div class="relative w-48 h-48 mx-auto mb-6">
+                    <div class="absolute inset-0 border-4 border-brand-red rounded-full transform rotate-45"></div>
+                    <div class="w-full h-full rounded-full overflow-hidden border-4 border-brand-blue relative z-10">
+                        <img  class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" src="https://webzonegroup.com/wp-content/uploads/2022/10/001-1-1463x2048.jpg"
+                             loading="lazy"
+                             alt="Ahmed Hassan"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <h4 class="text-xl font-bold text-gray-900">Ahmed Hassan</h4>
+                <p class="text-brand-red font-medium mb-2">Head Of Department Fire and safety</p>
+
+                <p class="text-gray-600 text-sm line-clamp-2 leader-message">
+                    Greetings to all, at the beginning, I would like to thank the Board of Directors of Web Zone Group for giving me this great opportunity to join this group and to be one of the pillars of the career structure Web Zone Group since its establishment in 2009 in continuous success in the implementation of all civil, electrical, electromechanical, fire and safety works.
+                     I will do my best to grow in This group puts my efforts in developing the business and moving on to another great period. The group will always provide more to all clients and increased comfort and ease of procedures in all construction and property management works. 
+                     Finally I wish to Web Zone Group more progress and success
+
+                </p>
+
+                <button
+                    class="mt-2 text-sm text-brand-blue font-medium hover:underline"
+                    onclick="toggleMessage(this)">
+                    Read more
+                </button>
+            </div>
+
+</section>
+
+<!-- Toggle Script -->
+<script>
+function toggleMessage(button) {
+    const message = button.previousElementSibling;
+    message.classList.toggle('line-clamp-2');
+
+    button.textContent =
+        message.classList.contains('line-clamp-2')
+        ? 'Read more'
+        : 'Read less';
+}
+</script>
+
+
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8">
+            <div>
+                 <img src="bglogo.png" alt="Company Logo" class="footer-logo">
+                 <style>
+                     *{
+                          box-sizing: border-box;
+                    }   
+
+                    /* Logo styling */
+                        .footer-logo {
+                          max-height: 90px;
+                          width: auto;
+                            margin-bottom: 10px;
+                    }                            /* desktop default */
+                        /* Mobile adjustments */
+@media (max-width: 600px) {
+  .footer-logo {
+    max-height: 32px; /* slightly smaller on mobile */
+  }
+
+  .site-footer p {
+    font-size: 12px;
+  }
+}                   
+                 </style> 
+
+
+                <p class="text-gray-400 text-sm">Building Construction MEP & Contractors of all kinds of Air Conditioning Plumbing and Electro-Mechanical & Fire and Safety Works Since 2009</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Quick Links</h4>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                    <li><a href="#about" class="hover:text-brand-red">About Us</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Services</a></li>
+                    <li><a href="#projects" class="hover:text-brand-red">Projects</a></li>
+                    <li><a href="#webcareers" class="hover:text-brand-red">Careers</li>
+                    <li><a href="#projects" class="hover:text-brand-red">Contact US</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Services</h4>
+                <ul class="text-gray-400 space-y-2 text-sm">
+                    <li><a href="#services" class="hover:text-brand-red">Air Conditioning</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Fire and Safety</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">MEP Maintenance</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">MEP Contracting</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Civil Contracting</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Maintenance Contracts (AMC)</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">HVAC Installation & Maintenance</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Plumbing</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Oil & Gas Services</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Commercial Electrical Services</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Maintenance Services</a></li>
+                    <li><a href="#services" class="hover:text-brand-red">Satellite maintenance Work</a></li>
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Connect</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-600 text-xs">
+            © 2026 Webzone Electro Mechanical Company. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize simple fade animations
+        AOS.init({
+            once: true, // Animations only happen once
+            offset: 50, // Trigger sooner (less lag)
+            duration: 600, // Faster animation
+            disable: 'mobile' // Optional: disable on very old phones if needed
+        });
+
+        // Toggle Mobile Menu (Side Drawer)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileOverlay');
+            const body = document.body;
+
+            if (menu.classList.contains('translate-x-full')) {
+                // Open
+                menu.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                body.style.overflow = 'hidden';
+            } else {
+                // Close
+                menu.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+                body.style.overflow = 'auto';
+            }
+        }
+
+        // Shared Modal Logic (Services & Projects)
+        function openModal(title, body, imageUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalBody').innerText = body;
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('serviceModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('serviceModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
